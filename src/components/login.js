@@ -1,11 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 
-export default function SignUp() {
-  const [name, setName] = useState("");
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordR, setPaswordR] = useState("");
+
   const [accept, setAccept] = useState(false);
   const [emailError, setEmailError] = useState("");
 
@@ -13,17 +12,15 @@ export default function SignUp() {
     let flag = true;
     e.preventDefault();
     setAccept(true);
-    if (name === "" || password.length < 8 || passwordR !== password) {
+    if (password.length < 8) {
       flag = false;
     } else {
       flag = true;
       try {
         if (flag) {
-          let res = await axios.post("http://127.0.0.1:8000/api/register", {
-            name: name,
+          let res = await axios.post("http://127.0.0.1:8000/api/login", {
             email: email,
             password: password,
-            password_confirmation: passwordR,
           });
         }
       } catch (err) {
@@ -35,17 +32,6 @@ export default function SignUp() {
   return (
     <div className="signUpContainer">
       <form onSubmit={submit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          id="name"
-          type="text"
-          placeholder="Name...."
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        ></input>
-        {name === "" && accept && (
-          <p className="error">user name is required</p>
-        )}
         <label htmlFor="email">Email:</label>
         <input
           id="email"
@@ -70,19 +56,8 @@ export default function SignUp() {
           <p className="error">password must be more than 8 chracters</p>
         )}
 
-        <label htmlFor="repass">ReWrite password:</label>
-        <input
-          id="repass"
-          type="password"
-          placeholder="ReWrite password...."
-          value={passwordR}
-          onChange={(e) => setPaswordR(e.target.value)}
-        ></input>
-        {passwordR !== password && accept && (
-          <p className="error">password not match</p>
-        )}
         <button type="submit" className="submit">
-          Regester
+          Login
         </button>
       </form>
     </div>

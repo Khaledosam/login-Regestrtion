@@ -4,7 +4,7 @@
 }
 body {
   font-family: "Cairo", sans-serif;
-  background-color: #0080ff85;
+  background-color: whitesmoke;
 }
 
 .container {
@@ -17,7 +17,7 @@ body {
   flex-direction: column;
   width: 100%;
   background-color: white;
-  transform: translate(0%, 40%);
+  transform: translate(-14%, 25%);
   border-radius: 10px;
 }
 .submit {
@@ -31,6 +31,7 @@ body {
   padding: 8px 3px;
   width: 100px;
 }
+
 form {
   box-shadow: 25px 10px 20px #673ab7;
   padding: 5%;
@@ -42,6 +43,9 @@ input {
   border-radius: 5px;
   font-size: 15px;
   border: 2px solid #80808030;
+  outline-color: blue;
+  color: blue;
+  font-weight: bold;
 }
 
 label {
@@ -51,4 +55,52 @@ label {
   color: red;
   font-size: 12px;
   text-transform: capitalize;
+}
+.header {
+  display: flex;
+}
+.regester,
+.login {
+  background-color: rgb(0, 110, 255);
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 9px 3px;
+  width: 100px;
+  position: relative;
+  text-decoration: none;
+}
+.regester {
+  top: 40px;
+  left: 400px;
+}
+.login {
+  top: 40px;
+  left: 310px;
+}
+.regester:hover,
+.login:hover,
+.submit:hover {
+  background-color: rgb(0 93 255 / 21%);
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+}
+.home:hover,
+.about:hover {
+  cursor: pointer;
+  color: blue;
+  font-size: larger;
+}
+.home {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+.about {
+  position: absolute;
+  top: 40px;
+  left: 90px;
 }
